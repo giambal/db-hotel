@@ -1,0 +1,52 @@
+
+entity: staze
+-numero_stanza: unique--primary key--autoincrease;
+-tipo_stanza: varchar(20);
+-piano: smallint(1);
+-prenotazione: date
+
+
+| numero_stanza    | tipo_stanza    | piano | prenotazione |
+------------------------------------------------------------
+| 1                |    suite       | 3     |
+| 2                |  matrimoniale  | 1     |
+| 3                |  singola       | 2     |
+| 4                |  singola       | 1     |
+| 5                |  matrimoniale  | 2     |
+
+
+
+entity: persone
+-id : unique--autoincrease;
+-numero_cartaIdentita: unique--primary key--autoincrease;
+-nome: varchar(15);
+-cognome: varchar(20);
+-data_nascita: data;
+
+
+| id | numero_cartaIdentita | nome            | cognome      | data_nascita |
+----------------------------------------------------------------------------
+| 1  | as1512               | nome1           | cognome1     | 25/12/1996   |
+| 2  | la9521               | nome2           | cognome2     | 03/04/1980   |
+| 3  | au3825               | nome3           | cognome3     | 08/06/1965   |
+| 4  | ai3521               | nome4           | cognome4     | 05/11/1986   |
+| 5  | ae3620               | nome5           | cognome5     | 20/10/1998   |
+| 6  | ai6420               | nome6           | cognome6     | 07/03/1975   |
+| 7  | ul1520               | nome7           | cognome7     | 09/01/1976   |
+
+
+entity: prenotazione
+-id:unique--primary key--autoincrease;
+-inizio_prenotazione: date;
+-fine_prenotazione: date;
+-id_persona: foreign key;
+-numero_stanza: foreign key;
+
+
+| id | inizio_prenotazione | fine_prenotazione | id_persona | numero_stanza |
+-----------------------------------------------------------------------------
+| 1  | 23-05-2019          | 27-05-2019        | 2          | 5             |
+| 2  | 23-05-2019          | 27-05-2019        | 4          | 5             |
+| 3  | 26-06-2019          | 26-06-2019        | 7          | 1             |
+| 4  | 01-07-2019          | 03-07-2019        | 1          | 1             |
+| 5  | 01-07-2019          | 03-07-2019        | 3          | 3             |
